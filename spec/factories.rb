@@ -7,9 +7,17 @@ FactoryGirl.define do
     promoted false
   end
 
-  factory :user do
-    name "User"
-    sequence(:email) {|num| "user##{num}@user.com"}
+  factory :admin_user, class: User do
+    name "Admin User"
+    sequence(:email) {|num| "admin_user##{num}@admin.com"}
+    password "password"
+    password_confirmation "password"
+    admin true
+  end
+
+  factory :non_admin_user, class: User do
+    name "Regular User"
+    sequence(:email) {|num| "regular_user##{num}@user.com"}
     password "password"
     password_confirmation "password"
     admin false
