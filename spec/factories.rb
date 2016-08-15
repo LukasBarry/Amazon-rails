@@ -23,4 +23,13 @@ FactoryGirl.define do
     admin false
   end
 
+  factory :cart do
+    association :user, factory: :non_admin_user
+  end
+
+  factory :line_item do
+    product
+    cart
+  end
+
 end

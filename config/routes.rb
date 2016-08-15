@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+
   get 'homes/index'
 
   root 'homes#index'
