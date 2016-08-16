@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   post 'line_items' => "products#line_item_create"
 
+  get 'carts/:id' => 'carts#show', as: :cart
+
+  post 'carts' => 'carts#index'
+
   devise_for :users
   resources :products
   resources :carts
