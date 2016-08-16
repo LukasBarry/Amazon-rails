@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  include CurrentCart
+  before_action :find_cart, only: [:line_item_create]
   before_action :authenticate_user!, except: :show
-  before_action :check_for_admin, except: :show
+  before_action :check_for_admin, except: [:show, :line_item_create]
 
   def new
     @product = Product.new
@@ -40,6 +42,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
       redirect_to products_path
+  end
+
+  def line_item_create
+    product = Product.find(params[:product_id])
+    @line_item = @cart.add_product(product.id)
+    if @line_item.save
+      redirect_to @cart
+    else
+      redirect_to @product
+    end
   end
 
   private
