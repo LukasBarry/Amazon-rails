@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   include CurrentCart
-  before_action :find_cart, only: [:line_item_create]
+  before_action :find_cart
   before_action :authenticate_user!, except: :show
   before_action :check_for_admin, except: [:show, :line_item_create]
 

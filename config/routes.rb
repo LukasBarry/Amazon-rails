@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   post 'carts' => 'carts#index'
 
+  post 'order_complete' => 'carts#order_complete'
+
   devise_for :users
   resources :products
   resources :carts

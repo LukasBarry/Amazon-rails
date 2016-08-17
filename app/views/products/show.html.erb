@@ -2,6 +2,6 @@
 
 <h4>Name: <%= @product.name %></h4>
 <h4>Price: <%= @product.price %></h4>
-<h4>Description: <%= @product.description %></h4>
+<h4>Description: <%= @product.description %></h3>
 
 <%=button_to 'Add to Cart', line_items_path(product_id: @product), class: "btn btn-success btn-sm"%>
