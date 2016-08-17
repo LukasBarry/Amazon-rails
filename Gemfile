@@ -13,6 +13,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
+gem 'faker', '~> 1.6'
 
 
 group :development, :test do
